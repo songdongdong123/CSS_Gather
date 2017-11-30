@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .container{
+      width:1200px;
+      margin:0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .box{
+      width:160px;
+      height:200px;
+      background:#339999;
+      margin-top: 20px;
+    }
+    /* 如果是三列布局那么我们就使用伪元素来解决， */
+    /* .container::after{
+      content: '';
+      width:320px;
+    } */
+    /* 使用css属性选择器，进行设置我们预先写好的空元素，
+    其实这样就实现了不管你多少列我们都可以使用flex布局来完美实现多列布局 */
+    div:empty{
+      height: 0;
+      width:160px;
+      border:none;
+    }
+    /* 最后我们会发现这两种解决方案，都是一个核心思想，也就是利用空元素来占位 */
+  </style>
+</head>
+<body>
+  <!-- 预先写好一行空元素将只设置宽度，
+    将高度设置为0，写多少个，就看个你是几列布局；下面是demo的dom结构 -->
+  <div class="container">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">2</div>
+    <div class="box">2</div>
+    <div class="box">2</div>
+    <div class="box">2</div>
+    <div class="box">2</div>
+    <div class="box">2</div>
+    <div class="box">2</div>
+    <div class="box">2</div>
+    <!-- 分割线（下面就是我预先写好的空元素） -->
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+</body>
+</html>
